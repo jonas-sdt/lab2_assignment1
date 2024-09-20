@@ -1,6 +1,6 @@
 #******************************************************************************
 #
-# Makefile - Rules for building the blinky example.
+# Makefile - Rules for building the lab2_assignment1 example.
 #
 # Copyright (c) 2013-2017 Texas Instruments Incorporated.  All rights reserved.
 # Software License Agreement
@@ -41,7 +41,10 @@ include ${ROOT}/makedefs
 # Where to find source files that do not live in this directory.
 #
 VPATH=../../examples/boards/ek-tm4c129exl/drivers
+VPATH+=../../grlib
 VPATH+=../../utils
+# VPATH+=../../driverlib
+# VPATH+=./include
 
 #
 # Where to find header files that do not live in the source directory.
@@ -49,12 +52,16 @@ VPATH+=../../utils
 IPATH=.
 IPATH+=../../examples/boards/ek-tm4c129exl/
 IPATH+=../..
+IPATH+=../../utils
+# IPATH+=../../grlib
+# IPATH+=../../driverlib
+# IPATH+=./include/
 
 #
-# The default rule, which causes the blinky example to be built.
+# The default rule, which causes the lab2_assignment1 example to be built.
 #
 all: ${COMPILER}
-all: ${COMPILER}/blinky.axf
+all: ${COMPILER}/lab2_assignment1.axf
 
 #
 # The rule to clean out all the build products.
@@ -69,16 +76,17 @@ ${COMPILER}:
 	@mkdir -p ${COMPILER}
 
 #
-# Rules for building the blinky example.
+# Rules for building the lab2_assignment1 example.
 #
-${COMPILER}/blinky.axf: ${COMPILER}/blinky.o
-${COMPILER}/blinky.axf: ${COMPILER}/buttons.o
-${COMPILER}/blinky.axf: ${COMPILER}/pinout.o
-${COMPILER}/blinky.axf: ${COMPILER}/startup_${COMPILER}.o
-${COMPILER}/blinky.axf: ${ROOT}/driverlib/${COMPILER}/libdriver.a
-${COMPILER}/blinky.axf: blinky.ld
-SCATTERgcc_blinky=blinky.ld
-ENTRY_blinky=ResetISR
+${COMPILER}/lab2_assignment1.axf: ${COMPILER}/lab2_assignment1.o
+${COMPILER}/lab2_assignment1.axf: ${COMPILER}/uartstdio.o
+${COMPILER}/lab2_assignment1.axf: ${COMPILER}/buttons.o
+${COMPILER}/lab2_assignment1.axf: ${COMPILER}/pinout.o
+${COMPILER}/lab2_assignment1.axf: ${COMPILER}/startup_${COMPILER}.o
+${COMPILER}/lab2_assignment1.axf: ${ROOT}/driverlib/${COMPILER}/libdriver.a
+${COMPILER}/lab2_assignment1.axf: lab2_assignment1.ld
+SCATTERgcc_lab2_assignment1=lab2_assignment1.ld
+ENTRY_lab2_assignment1=ResetISR
 CFLAGSgcc=-DTARGET_IS_TM4C129_RA1
 
 #

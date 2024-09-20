@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- * blinky.ld - Linker configuration file for blinky.
+ * lab2_assignment1.ld - Linker configuration file for lab2_assignment1.
  *
  * Copyright (c) 2013-2017 Texas Instruments Incorporated.  All rights reserved.
  * Software License Agreement
